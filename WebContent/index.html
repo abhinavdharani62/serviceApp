@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tests</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/angular.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!----font-Awesome----->
+<link href="css/font-awesome.css" rel="stylesheet">
+ <!----implementation----->
+ 
+ 
+</head>
+<body ng-app="myDemo">
+ <div class="navbar navbar-inverse-blue navbar" id="top-dropdown-menu" ng-controller="myDemoCtrl">
+      <div class="navbar-inner">
+        <div class="container">
+          <div class="pull-right">
+          	<nav class="navbar nav_bottom" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+		   <!-- Top right Menu -->
+		    <div class="">
+		        <ul class="nav top-right-menu navbar-nav">
+		            <li class="dropdown attachments-menu-title"><a href="#" ng-click="toggle1=!toggle1" class="dropdown-toggle" ng-init="toggle1=true"  ><span class="notification-count">4</span>Attachments<span class="caret"></span></a>
+						<div class="attachments-menu"  role="menu" resize ng-style="style()" data-slide-toggle="toggle1" >
+							<h2>Repair Order Attachments<span class="close-btn" ><a href="#" ng-click="toggle1=!toggle1" ng-init="toggle1=true">&times;</a></span></h2>
+							<p><i>Move jobs to other attachments is necessary</i></p>
+							<h5 class="desc-title">Description</h5>
+							<div ng-repeat="joblist in joblists">
+							<div class="attachments-group">
+								<h3><span>{{joblist.type}}</span><a href="javascript:void(0);" class="attachment-link">Add Attachment</a></h3>
+								<ul class="attachment-list">
+									<li ng-repeat="attachment in joblist.attachments">
+										<span class="actions">
+											<a class="edit-action" href="#">Edit</a>
+											<a class="save-action" href="#"><i class="fa fa-floppy-o fa-lg" aria-hidden="true"></i></a>
+											<a class="cancel-action" href="#"><i class="fa fa-times-circle fa-lg" aria-hidden="false"></i></a>
+										</span>
+									<span><img ng-src="{{attachment.contentType | getImage}}" width="48" height="48" /></span>
+										<span class="attachment-details">
+											<h6>{{attachment.name}}</h6>
+											<span>{{attachment.contentType==="pdf" ? "Photo" : attachment.contentType==="excel"?"Excel File":attachment.contentType==="msword"?"MS Word":attachment.contentType==="email"?"E-Mail":"Reporting Document"}}</span>
+											<span>{{attachment.enterOn | date:'EEEE,MMM dd, yyyy, HH:mm'}}</span>
+										</span>
+									</li>
+								</ul>
+							</div>
+							</div>
+							<div class="attachment-popup">
+								<h2>Add Attachment:<span class="close-popup"><a href="javascript:void(0);">&times;</a></span></h2>
+								<h3 class="headerInfo"></h3>
+								<form ng-submit="submit()">
+									<div class="form-row">
+										<label>Attachment Name</label>
+										<input type="text"  name="attachmentName" ng-model="attachmentName">
+									</div>
+									<div class="form-row">
+										<label>Attachment Type</label>
+										<select  name="attachmentType" ng-model="attachmentType" ng-options="attType.type as attType.name for attType in attTypes">								
+										</select>
+									</div>
+									<div class="form-row upload-photo">
+										<label>Upload file or <a href="#">Take a Photo</a></label>
+										<div class="photo-attachment-grp">
+											<input type="text" class="file-name" name="fileName"  placeholder="No file choosen">
+											<span class="browse-btn"><a href="javascript:void(0);">Browse<input type="file" class="browse-file" fd-input id="fileLoad" ></a></span>
+										</div>
+									</div>
+									<div>
+									<div class="form-row view-photo">
+										<label>Photo</label>
+										<div class="photo-attachment">
+											<span class="actions">
+												<a class="retry-attachment" href="javascript:void(0)">Try Again</a>
+											</span>
+											<span><img src="test-img.jpg" width="48" height="48"></span>
+											<span class="attachment-details">
+												<span>{{cdate | date:'EEEE,MMM dd, yyyy, HH:mm'}}</span>
+											</span>
+										</div>
+									</div>
+									<div class="clearfix"></div>
+									<div class="form-row">
+										<input class="green-btn finish-btn" type="submit" value="Finish">
+										<input class="green-btn add-attachment-btn" ng-click="submit()"  type="button" value="Add Attachment">
+										<a href="javascript:void(0);" class="cancel-btn">Cancel</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</li>
+		            <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="notification-count">2</span>Parts<span class="caret"></span></a>
+						<!-- <ul class="dropdown-menu" role="menu">
+							<li><a href="upcoming-events.html">Test Parts1</a></li>
+							<li><a href="completed-events.html">Test Parts2</a></li>
+						</ul> -->
+					</li>
+		        </ul>
+		     </div><!-- /.navbar-collapse -->
+		    </nav>
+		   </div>
+          <div class="clearfix"> </div>
+        </div>
+      </div>
+    </div>
+	<div class="col-md-12">
+	Aenean nonummy hendrerit mau phasellu porta. Fusce suscipit varius mi sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean nonummy hendrerit mau phasellu porta. Fusce suscipit varius mi sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean nonummy hendrerit mau phasellu porta. Fusce suscipit varius mi sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean nonummy hendrerit mau phasellu porta. Fusce suscipit varius mi sed. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+	</div>
+</body>
+<script src="js/util.js"></script>
+<script>
+$(document).ready(function(){
+
+    $(document).delegate(".attachment-link",'click',function(){
+    	$(".headerInfo").text($(this).siblings('span:first').text());
+		$('.attachment-popup').slideDown("fast");
+		$('.attachment-popup').addClass('upload-form');
+	});
+    $(document).delegate(".close-popup a, .cancel-btn",'click',function(){
+		$('.attachment-popup').slideUp("fast");
+	});
+    $(document).delegate(".add-attachment-btn",'click',function(e){
+		e.preventDefault();
+		$('.attachment-popup').addClass('preview-form').removeClass('upload-form');
+	});
+    $(document).delegate(".retry-attachment",'click',function(){
+		$('.attachment-popup').removeClass('preview-form').addClass('upload-form');
+	});
+    //$(document).delegate(".browse-file",'change',function(){
+    	//var filePath=$("#fileLoad").val();
+			//	$('.file-name').val(filePath);
+	//});
+});
+
+</script>
+</html>		

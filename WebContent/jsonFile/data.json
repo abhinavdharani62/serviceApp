@@ -1,0 +1,49 @@
+{
+  "repairOrder": {
+    "joblist": [
+      {
+        "type": "PM DE1",
+        "attachments": [
+          {
+            "name": "Attachment Name",
+            "contentType": "appication.pdf",
+            "enterOn": 1486672200000
+          },
+          {
+            "name": "Attachment Name1",
+             "contentType": "application/vdn.msexcel",
+            "enterOn": 1492288200000
+          },
+          {
+            "name": "Attachment Name2",
+            "contentType": "application/msword",
+            "enterOn": 1492288200000
+          },
+          {
+            "name": "Attachment Name3",
+            "contentType": "email",
+            "enterOn": 1492288200000
+          },
+          {
+            "name": "Attachment Name4",
+            "contentType": "application.ppt",
+            "enterOn": 1492288200000
+          }
+        ]
+      }
+     ,
+      {
+        "type": "D-BATTERY",
+        "attachments": [
+          
+        ]
+      },
+      {
+        "type": "D-BREAKS",
+        "attachments": [
+          
+        ]
+      }
+    ]
+  }
+}
